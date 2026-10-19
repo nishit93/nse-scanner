@@ -99,7 +99,7 @@ function render() {
 
   const banner = $("#banner");
   banner.hidden = !state.sample;
-  banner.textContent = state.sample ? "Showing SAMPLE data (made-up numbers). Real scans appear once the GitLab pipeline runs." : "";
+  banner.textContent = state.sample ? "Showing SAMPLE data (made-up numbers). Real scans appear once the scan workflow runs." : "";
 
   const b = d.breadth, adv = b.advancers + b.decliners ? (100 * b.advancers) / (b.advancers + b.decliners) : 50;
   $("#breadth").innerHTML = `

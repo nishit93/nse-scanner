@@ -1,0 +1,58 @@
+# Scan the market, then publish the web app + fresh data to GitHub Pages.
+name: Scan and deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    # GitHub cron is UTC and may start 5-30 min late.
+    - cron: "15 11 * * 1-5"   # 16:45 IST, after the close
+    - cron: "30 2 * * 1-5"    # 08:00 IST, before the open (picks up late data fixes)
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scanner/requirements.txt
+
+      # Fundamentals change slowly; carry the scanner's cache between runs.
+      - uses: actions/cache@v4
+        with:
+          path: scanner/.cache
+          key: fundamentals-${{ github.run_id }}
+          restore-keys: fundamentals-
+
+      - run: pip install -r scanner/requirements.txt
+      - run: python scanner/scan.py web/data
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: web
+
+  deploy:
+    needs: scan
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
