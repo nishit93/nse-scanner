@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-10-16T16:45:00+05:30",
+  "marketDate": "2026-10-16",
+  "universe": "SAMPLE data",
+  "count": 8,
+  "breadth": { "advancers": 312, "decliners": 181, "pctAbove200": 58.4, "newHighs": 27, "newLows": 6 },
+  "stocks": [
+    { "symbol": "SAMPLEA", "name": "Sample Alpha Ltd.", "sector": "Capital Goods", "date": "2026-10-16", "close": 1842.5, "chg": 4.21, "rsi": 68.2, "volRatio": 3.4, "fromHigh": 1.2, "perf1m": 9.8, "perf3m": 18.4, "above200": true,
+      "signals": [
+        { "id": "breakout_52w", "label": "52-week high breakout", "bias": "bull", "detail": "closed above 1820.00" },
+        { "id": "volume_spike", "label": "Volume spike", "bias": "bull", "detail": "3.4x 20-day avg volume" },
+        { "id": "uptrend", "label": "Strong uptrend", "bias": "bull", "detail": "price > 20 > 50 > 200 DMA" },
+        { "id": "quality", "label": "Quality fundamentals", "bias": "bull", "detail": "passes 4/5 checks" }
+      ], "score": 7, "strength": 6, "quality": 4,
+      "fund": { "pe": 34.1, "pb": 6.2, "roe": 19.4, "de": 0.21, "revGrowth": 16.3, "epsGrowth": 22.0, "mcapCr": 48210 } },
+    { "symbol": "SAMPLEB", "name": "Sample Beta Finance Ltd.", "sector": "Financial Services", "date": "2026-10-16", "close": 712.3, "chg": 1.85, "rsi": 58.9, "volRatio": 1.3, "fromHigh": -6.4, "perf1m": 4.1, "perf3m": 7.2, "above200": true,
+      "signals": [
+        { "id": "golden_cross", "label": "Golden cross (50/200)", "bias": "bull", "detail": "50-DMA crossed above 200-DMA" },
+        { "id": "squeeze", "label": "Volatility squeeze", "bias": "neutral", "detail": "Bollinger width at 6-month low" }
+      ], "score": 3, "strength": 3, "quality": 3,
+      "fund": { "pe": 18.7, "pb": 2.9, "roe": 15.8, "de": 4.6, "revGrowth": 21.0, "epsGrowth": 12.5, "mcapCr": 21450 } },
+    { "symbol": "SAMPLEC", "name": "Sample Gamma Pharma Ltd.", "sector": "Healthcare", "date": "2026-10-16", "close": 455.0, "chg": 2.6, "rsi": 33.1, "volRatio": 1.8, "fromHigh": -28.5, "perf1m": -11.2, "perf3m": -19.6, "above200": false,
+      "signals": [
+        { "id": "rsi_bounce", "label": "RSI oversold bounce", "bias": "bull", "detail": "RSI 27 -> 33" }
+      ], "score": 2, "strength": 2, "quality": 2,
+      "fund": { "pe": 26.3, "pb": 3.1, "roe": 11.2, "de": 0.35, "revGrowth": 6.1, "epsGrowth": -4.3, "mcapCr": 9870 } },
+    { "symbol": "SAMPLED", "name": "Sample Delta Tech Ltd.", "sector": "Information Technology", "date": "2026-10-16", "close": 3120.75, "chg": 0.45, "rsi": 61.4, "volRatio": 0.9, "fromHigh": -2.1, "perf1m": 5.6, "perf3m": 11.0, "above200": true,
+      "signals": [
+        { "id": "near_52w_high", "label": "Near 52-week high", "bias": "bull", "detail": "2.1% below high" },
+        { "id": "uptrend", "label": "Strong uptrend", "bias": "bull", "detail": "price > 20 > 50 > 200 DMA" },
+        { "id": "quality", "label": "Quality fundamentals", "bias": "bull", "detail": "passes 5/5 checks" }
+      ], "score": 3, "strength": 2, "quality": 5,
+      "fund": { "pe": 29.5, "pb": 8.4, "roe": 28.7, "de": 0.05, "revGrowth": 12.2, "epsGrowth": 14.8, "mcapCr": 112300 } },
+    { "symbol": "SAMPLEE", "name": "Sample Epsilon Metals Ltd.", "sector": "Metals & Mining", "date": "2026-10-16", "close": 128.4, "chg": -3.9, "rsi": 29.4, "volRatio": 2.6, "fromHigh": -34.0, "perf1m": -14.5, "perf3m": -22.8, "above200": false,
+      "signals": [
+        { "id": "breakdown_52w", "label": "52-week low breakdown", "bias": "bear", "detail": "closed below 131.20" },
+        { "id": "volume_spike", "label": "Volume spike", "bias": "bear", "detail": "2.6x 20-day avg volume" },
+        { "id": "downtrend", "label": "Strong downtrend", "bias": "bear", "detail": "price < 20 < 50 < 200 DMA" },
+        { "id": "rsi_oversold", "label": "RSI oversold", "bias": "bull", "detail": "RSI 29" }
+      ], "score": -5, "strength": 7, "quality": 1,
+      "fund": { "pe": 9.2, "pb": 0.8, "roe": 6.4, "de": 1.7, "revGrowth": -8.1, "epsGrowth": -31.0, "mcapCr": 15600 } },
+    { "symbol": "SAMPLEF", "name": "Sample Zeta Motors Ltd.", "sector": "Automobile and Auto Components", "date": "2026-10-16", "close": 986.2, "chg": -1.2, "rsi": 44.7, "volRatio": 1.1, "fromHigh": -15.3, "perf1m": -3.4, "perf3m": -8.9, "above200": false,
+      "signals": [
+        { "id": "death_cross", "label": "Death cross (50/200)", "bias": "bear", "detail": "50-DMA crossed below 200-DMA" }
+      ], "score": -3, "strength": 3, "quality": 3,
+      "fund": { "pe": 21.0, "pb": 3.6, "roe": 17.1, "de": 0.6, "revGrowth": 4.2, "epsGrowth": -2.1, "mcapCr": 33400 } },
+    { "symbol": "SAMPLEG", "name": "Sample Eta Consumer Ltd.", "sector": "Fast Moving Consumer Goods", "date": "2026-10-16", "close": 2415.0, "chg": 3.1, "rsi": 79.3, "volRatio": 1.6, "fromHigh": -0.4, "perf1m": 12.7, "perf3m": 15.1, "above200": true,
+      "signals": [
+        { "id": "gap_up", "label": "Gap up", "bias": "bull", "detail": "opened 2.4% above prior high" },
+        { "id": "rsi_overbought", "label": "RSI overbought", "bias": "bear", "detail": "RSI 79" },
+        { "id": "near_52w_high", "label": "Near 52-week high", "bias": "bull", "detail": "0.4% below high" }
+      ], "score": 1, "strength": 3, "quality": null, "fund": null },
+    { "symbol": "SAMPLEH", "name": "Sample Theta Power Ltd.", "sector": "Power", "date": "2026-10-16", "close": 342.6, "chg": 0.2, "rsi": 51.0, "volRatio": 0.8, "fromHigh": -9.8, "perf1m": 1.1, "perf3m": 3.4, "above200": true,
+      "signals": [], "score": 0, "strength": 0, "quality": null, "fund": null }
+  ]
+}

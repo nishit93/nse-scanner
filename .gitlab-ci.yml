@@ -1,0 +1,40 @@
+# Scan the market, then publish the web app + fresh data to GitLab Pages.
+# Runs on pushes to the default branch, on manual "Run pipeline", and on schedules
+# (set the schedule in Build > Pipeline schedules; see README).
+
+stages: [scan, deploy]
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+.when: &when
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+    - if: $CI_PIPELINE_SOURCE == "web"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+scan:
+  stage: scan
+  image: python:3.12-slim
+  <<: *when
+  timeout: 45m
+  cache:
+    key: scanner
+    paths: [.cache/pip, scanner/.cache]
+  script:
+    - pip install -q -r scanner/requirements.txt
+    - python scanner/scan.py public/data
+  artifacts:
+    paths: [public/data]
+    expire_in: 1 week
+
+pages:
+  stage: deploy
+  image: alpine:3.20
+  <<: *when
+  needs: [scan]
+  script:
+    - mkdir -p public
+    - cp -r web/* public/
+  artifacts:
+    paths: [public]

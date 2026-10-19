@@ -1,0 +1,10 @@
+__pycache__/
+.cache/
+scanner/.cache/
+public/
+web/data/scan.json
+web/data/history/
+.venv/
+*.log
+node_modules/
+.env
